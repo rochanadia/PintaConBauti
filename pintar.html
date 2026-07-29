@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pintá con Bauti</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -21,15 +21,7 @@
 
 </div>
 
-<script>
-
-const parametros = new URLSearchParams(window.location.search);
-
-const archivo = parametros.get("dibujo");
-
-document.getElementById("dibujo").src = "dibujos/" + archivo;
-
-</script>
+<script src="js/pintar.js"></script>
 
 </body>
 </html>
