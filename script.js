@@ -1,26 +1,26 @@
 const dibujos = [
-
     {
         nombre: "Bartolito",
         archivo: "huevo_bartolito.png"
     }
-
 ];
 
 const galeria = document.getElementById("galeria");
 
-dibujos.forEach(dibujo => {
+dibujos.forEach((dibujo) => {
 
-    galeria.innerHTML += `
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "tarjeta";
 
-        <div class="tarjeta">
-
-            <img src="dibujos/${dibujo.archivo}" alt="${dibujo.nombre}">
-
-            <p>${dibujo.nombre}</p>
-
-        </div>
-
+    tarjeta.innerHTML = `
+        <img src="dibujos/${dibujo.archivo}" alt="${dibujo.nombre}">
+        <p>${dibujo.nombre}</p>
     `;
 
+    tarjeta.addEventListener("click", () => {
+        window.location.href =
+            `pintar.html?dibujo=${encodeURIComponent(dibujo.archivo)}`;
+    });
+
+    galeria.appendChild(tarjeta);
 });
