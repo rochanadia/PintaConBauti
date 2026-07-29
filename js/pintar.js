@@ -6,11 +6,14 @@ const canvas = document.getElementById("lienzoPintura");
 const contexto = canvas.getContext("2d");
 
 const botonLimpiar = document.getElementById("limpiar");
+const botonDeshacer = document.getElementById("deshacer");
 const botonVolver = document.getElementById("volver");
 
 let dibujando = false;
 let colorActual = "#ff3b30";
 let grosorActual = 18;
+let historial = [];
+const limiteHistorial = 20;
 
 if (!archivo) {
     alert("No se encontró el dibujo.");
@@ -30,6 +33,9 @@ function prepararLienzo() {
     contexto.lineJoin = "round";
 
     limpiarLienzo();
+
+    historial = [];
+    guardarEstado();
 }
 
 function limpiarLienzo() {
@@ -38,6 +44,43 @@ function limpiarLienzo() {
 
     contexto.fillStyle = "#ffffff";
     contexto.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function guardarEstado() {
+
+    if (historial.length >= limiteHistorial) {
+        historial.shift();
+    }
+
+    historial.push(canvas.toDataURL());
+
+    actualizarBotonDeshacer();
+}
+
+function actualizarBotonDeshacer() {
+    botonDeshacer.disabled = historial.length <= 1;
+}
+
+function deshacer() {
+
+    if (historial.length <= 1) {
+        return;
+    }
+
+    historial.pop();
+
+    const estadoAnterior = historial[historial.length - 1];
+    const imagenEstado = new Image();
+
+    imagenEstado.onload = () => {
+
+        contexto.clearRect(0, 0, canvas.width, canvas.height);
+        contexto.drawImage(imagenEstado, 0, 0);
+
+        actualizarBotonDeshacer();
+    };
+
+    imagenEstado.src = estadoAnterior;
 }
 
 function obtenerPosicion(evento) {
@@ -113,6 +156,8 @@ function terminarDibujo(evento) {
     dibujando = false;
     contexto.beginPath();
 
+    guardarEstado();
+
     if (canvas.hasPointerCapture(evento.pointerId)) {
         canvas.releasePointerCapture(evento.pointerId);
     }
@@ -159,12 +204,15 @@ document.querySelectorAll(".grosor").forEach((boton) => {
 
 });
 
+botonDeshacer.addEventListener("click", deshacer);
+
 botonLimpiar.addEventListener("click", () => {
 
     const confirmar = confirm("¿Querés borrar todo lo pintado?");
 
     if (confirmar) {
         limpiarLienzo();
+        guardarEstado();
     }
 
 });
