@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
     <title>Pintá con Bauti</title>
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<div class="contenedor">
+    <main class="pantallaPintar">
 
-    <h1>🎨 Pintá con Bauti</h1>
+        <h1>🎨 Pintá con Bauti</h1>
 
-    <img id="dibujo" src="" alt="Dibujo para pintar" class="dibujoGrande">
+        <div class="herramientas">
 
-    <br><br>
+            <div class="paleta" aria-label="Colores">
 
-    <button onclick="history.back()">⬅ Volver</button>
+                <button class="color activo" data-color="#ff3b30" style="background:#ff3b30"></button>
+                <button class="color" data-color="#ff9500" style="background:#ff9500"></button>
+                <button class="color" data-color="#ffcc00" style="background:#ffcc00"></button>
+                <button class="color" data-color="#34c759" style="background:#34c759"></button>
+                <button class="color" data-color="#007aff" style="background:#007aff"></button>
+                <button class="color" data-color="#af52de" style="background:#af52de"></button>
+                <button class="color" data-color="#ff2d95" style="background:#ff2d95"></button>
+                <button class="color" data-color="#8e5a2b" style="background:#8e5a2b"></button>
+                <button class="color" data-color="#111111" style="background:#111111"></button>
 
-</div>
+            </div>
 
-<script src="js/pintar.js"></script>
+            <div class="grosores">
+
+                <button class="grosor" data-grosor="8">Fino</button>
+                <button class="grosor activo" data-grosor="18">Medio</button>
+                <button class="grosor" data-grosor="32">Grande</button>
+
+            </div>
+
+        </div>
+
+        <div class="contenedorLienzo">
+
+            <canvas id="lienzoPintura"></canvas>
+
+            <img
+                id="dibujo"
+                src=""
+                alt="Dibujo para pintar"
+                draggable="false"
+            >
+
+        </div>
+
+        <div class="accionesPintar">
+
+            <button id="limpiar" type="button">🧹 Limpiar</button>
+
+            <button id="volver" type="button">⬅ Volver</button>
+
+        </div>
+
+    </main>
+
+    <script src="js/pintar.js"></script>
 
 </body>
 </html>

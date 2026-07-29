@@ -109,3 +109,143 @@ button{
     cursor:pointer;
 
 }
+
+.pantallaPintar {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.herramientas {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.paleta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.color {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    border: 4px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #cccccc;
+    cursor: pointer;
+}
+
+.color.activo {
+    box-shadow:
+        0 0 0 4px #333333,
+        0 4px 10px rgba(0, 0, 0, 0.25);
+    transform: scale(1.08);
+}
+
+.grosores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.grosor {
+    padding: 10px 18px;
+    font-size: 18px;
+    background: #eeeeee;
+    border: 3px solid transparent;
+    border-radius: 14px;
+}
+
+.grosor.activo {
+    background: #ffe08a;
+    border-color: #444444;
+}
+
+.contenedorLienzo {
+    position: relative;
+    width: min(90vw, 750px);
+    margin: 20px auto;
+    overflow: hidden;
+    background: white;
+    border: 6px solid white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+#lienzoPintura,
+#dibujo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#lienzoPintura {
+    position: relative;
+    z-index: 1;
+    touch-action: none;
+    cursor: crosshair;
+}
+
+#dibujo {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    user-select: none;
+    mix-blend-mode: multiply;
+}
+
+.accionesPintar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.accionesPintar button {
+    min-width: 150px;
+    padding: 15px 24px;
+    font-size: 21px;
+    font-weight: bold;
+    background: white;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accionesPintar button:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 600px) {
+
+    .pantallaPintar {
+        padding: 10px;
+    }
+
+    .pantallaPintar h1 {
+        font-size: 30px;
+    }
+
+    .color {
+        width: 48px;
+        height: 48px;
+    }
+
+    .contenedorLienzo {
+        width: 96vw;
+        border-width: 4px;
+    }
+
+}
