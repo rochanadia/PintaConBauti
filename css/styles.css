@@ -718,3 +718,60 @@ button{
         transform: scale(1);
     }
 }
+
+@media (min-width: 850px) and (orientation: landscape) {
+
+    .pantallaPintar {
+        height: 100vh;
+        padding: 8px 12px;
+        overflow: hidden;
+    }
+
+    .pantallaPintar h1 {
+        margin: 4px 0 8px;
+        font-size: 30px;
+    }
+
+    .editorPintura {
+        height: calc(100vh - 70px);
+        align-items: center;
+    }
+
+    .editorPintura .herramientas {
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        padding: 12px;
+    }
+
+    .zonaDibujo {
+        height: 100%;
+        justify-content: center;
+    }
+
+    .contenedorLienzo {
+        width: auto;
+        max-width: calc(100vw - 330px);
+        max-height: calc(100vh - 150px);
+        margin: 0 auto;
+    }
+
+    #lienzoPintura,
+    #dibujo {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: calc(100vh - 150px);
+        object-fit: contain;
+    }
+
+    .accionesPintar {
+        margin: 10px 0 0;
+        gap: 10px;
+    }
+
+    .accionesPintar button {
+        min-height: 44px;
+        padding: 8px 14px;
+        font-size: 16px;
+    }
+}
