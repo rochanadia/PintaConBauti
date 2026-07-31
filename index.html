@@ -3,34 +3,68 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Pintá con Bauti</title>
+    <title>Pintá con Bauti</title>
 
-<link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
 <body>
 
-<div class="contenedor">
+    <div class="contenedor">
 
-    <h1>🎨 Pintá con Bauti</h1>
+        <h1>🎨 Pintá con Bauti</h1>
 
-    <p class="subtitulo">
-        Elegí un dibujo para empezar
-    </p>
+        <p class="subtitulo">
+            Elegí una categoría
+        </p>
 
-    <div class="galeria" id="galeria">
+        <div class="categorias">
 
-</div>
-    
-</div>
+            <button
+                class="tarjetaCategoria disponible"
+                data-categoria="huevos-sorpresa"
+                type="button"
+            >
+                <span class="iconoCategoria">🥚</span>
 
-<script src="js/script.js"></script>
+                <span class="nombreCategoria">
+                    Huevos Sorpresa
+                </span>
+
+                <span class="estadoCategoria">
+                    Elegir dibujos
+                </span>
+            </button>
+
+            <button
+                class="tarjetaCategoria proximamente"
+                type="button"
+                disabled
+            >
+                <span class="iconoCategoria">🚜</span>
+
+                <span class="nombreCategoria">
+                    La Granja
+                </span>
+
+                <span class="estadoCategoria">
+                    Próximamente
+                </span>
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
 
 </body>
 
