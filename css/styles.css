@@ -282,3 +282,149 @@ button{
     border-color: #333;
     transform: scale(1.08);
 }
+
+/* Barra de herramientas para tablet */
+
+.herramientas {
+    position: sticky;
+    top: 10px;
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    width: min(900px, 95%);
+    margin: 10px auto 18px;
+    padding: 16px;
+
+    background: rgba(255, 255, 255, 0.96);
+    border: 3px solid #ffd166;
+    border-radius: 24px;
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.herramientasDibujo,
+.paleta,
+.grosores,
+.accionesPintar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.herramienta,
+.grosor,
+.accionesPintar button {
+    min-height: 54px;
+    padding: 10px 18px;
+
+    border: 3px solid transparent;
+    border-radius: 18px;
+
+    background: white;
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+    touch-action: manipulation;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.herramienta:active,
+.grosor:active,
+.accionesPintar button:active {
+    transform: scale(0.94);
+}
+
+.herramienta.activa,
+.grosor.activo {
+    border-color: #333;
+    transform: scale(1.07);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.22);
+}
+
+.color {
+    width: 52px;
+    height: 52px;
+
+    padding: 0;
+    border: 4px solid white;
+    border-radius: 50%;
+
+    cursor: pointer;
+    touch-action: manipulation;
+
+    box-shadow:
+        0 0 0 2px #ccc,
+        0 4px 8px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.color:active {
+    transform: scale(0.9);
+}
+
+.color.activo {
+    transform: scale(1.16);
+    box-shadow:
+        0 0 0 4px #333,
+        0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+#guardar {
+    background: #b7f7c2;
+}
+
+#limpiar {
+    background: #ffe6a7;
+}
+
+#deshacer {
+    background: #d9eaff;
+}
+
+#volver {
+    background: #ffd6e0;
+}
+
+.accionesPintar button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 600px) {
+
+    .herramientas {
+        top: 4px;
+        width: 96%;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .herramienta,
+    .grosor,
+    .accionesPintar button {
+        min-height: 50px;
+        padding: 9px 14px;
+        font-size: 16px;
+    }
+
+    .color {
+        width: 46px;
+        height: 46px;
+    }
+}
