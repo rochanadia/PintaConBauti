@@ -11,6 +11,7 @@ const botonVolver = document.getElementById("volver");
 
 const botonPincel = document.getElementById("pincel");
 const botonGoma = document.getElementById("goma");
+const botonBalde = document.getElementById("balde");
 const botonGuardar = document.getElementById("guardar");
 
 let dibujando = false;
@@ -98,13 +99,179 @@ function obtenerPosicion(evento) {
     };
 }
 
+function convertirColorARegistro(colorHexadecimal) {
+
+    const color = colorHexadecimal.replace("#", "");
+
+    return {
+        r: parseInt(color.substring(0, 2), 16),
+        g: parseInt(color.substring(2, 4), 16),
+        b: parseInt(color.substring(4, 6), 16),
+        a: 255
+    };
+}
+
+function coloresParecidos(datos, indice, colorObjetivo, tolerancia) {
+
+    return (
+        Math.abs(datos[indice] - colorObjetivo.r) <= tolerancia &&
+        Math.abs(datos[indice + 1] - colorObjetivo.g) <= tolerancia &&
+        Math.abs(datos[indice + 2] - colorObjetivo.b) <= tolerancia &&
+        Math.abs(datos[indice + 3] - colorObjetivo.a) <= tolerancia
+    );
+}
+
+function usarBalde(posicion) {
+
+    const ancho = canvas.width;
+    const alto = canvas.height;
+
+    const xInicial = Math.floor(posicion.x);
+    const yInicial = Math.floor(posicion.y);
+
+    if (
+        xInicial < 0 ||
+        yInicial < 0 ||
+        xInicial >= ancho ||
+        yInicial >= alto
+    ) {
+        return;
+    }
+
+    /*
+     * Este canvas temporal junta:
+     * 1. El dibujo original.
+     * 2. Lo que ya pintamos.
+     *
+     * Así el balde puede reconocer tanto las líneas negras
+     * como la pintura existente.
+     */
+    const canvasTemporal = document.createElement("canvas");
+    canvasTemporal.width = ancho;
+    canvasTemporal.height = alto;
+
+    const contextoTemporal = canvasTemporal.getContext("2d", {
+        willReadFrequently: true
+    });
+
+    contextoTemporal.drawImage(imagen, 0, 0, ancho, alto);
+    contextoTemporal.drawImage(canvas, 0, 0);
+
+    const imagenCompuesta = contextoTemporal.getImageData(
+        0,
+        0,
+        ancho,
+        alto
+    );
+
+    const datos = imagenCompuesta.data;
+    const indiceInicial = (yInicial * ancho + xInicial) * 4;
+
+    const colorObjetivo = {
+        r: datos[indiceInicial],
+        g: datos[indiceInicial + 1],
+        b: datos[indiceInicial + 2],
+        a: datos[indiceInicial + 3]
+    };
+
+    const colorNuevo = convertirColorARegistro(colorActual);
+
+    /*
+     * Si tocamos una zona que ya tiene prácticamente
+     * el mismo color, no hacemos nada.
+     */
+    const diferenciaColor =
+        Math.abs(colorObjetivo.r - colorNuevo.r) +
+        Math.abs(colorObjetivo.g - colorNuevo.g) +
+        Math.abs(colorObjetivo.b - colorNuevo.b);
+
+    if (diferenciaColor < 15) {
+        return;
+    }
+
+    const pinturaActual = contexto.getImageData(
+        0,
+        0,
+        ancho,
+        alto
+    );
+
+    const datosPintura = pinturaActual.data;
+
+    const visitados = new Uint8Array(ancho * alto);
+    const pendientes = [[xInicial, yInicial]];
+
+    /*
+     * Una tolerancia moderada permite incluir pequeñas
+     * variaciones del fondo sin atravesar las líneas negras.
+     */
+    const tolerancia = 35;
+
+    while (pendientes.length > 0) {
+
+        const [x, y] = pendientes.pop();
+        const posicionLineal = y * ancho + x;
+
+        if (visitados[posicionLineal]) {
+            continue;
+        }
+
+        visitados[posicionLineal] = 1;
+
+        const indice = posicionLineal * 4;
+
+        if (
+            !coloresParecidos(
+                datos,
+                indice,
+                colorObjetivo,
+                tolerancia
+            )
+        ) {
+            continue;
+        }
+
+        datosPintura[indice] = colorNuevo.r;
+        datosPintura[indice + 1] = colorNuevo.g;
+        datosPintura[indice + 2] = colorNuevo.b;
+        datosPintura[indice + 3] = colorNuevo.a;
+
+        if (x > 0) {
+            pendientes.push([x - 1, y]);
+        }
+
+        if (x < ancho - 1) {
+            pendientes.push([x + 1, y]);
+        }
+
+        if (y > 0) {
+            pendientes.push([x, y - 1]);
+        }
+
+        if (y < alto - 1) {
+            pendientes.push([x, y + 1]);
+        }
+    }
+
+    contexto.globalCompositeOperation = "source-over";
+    contexto.putImageData(pinturaActual, 0, 0);
+
+    guardarEstado();
+}
+
 function comenzarDibujo(evento) {
 
     evento.preventDefault();
 
-    dibujando = true;
-
     const posicion = obtenerPosicion(evento);
+
+    if (herramientaActual === "balde") {
+
+        usarBalde(posicion);
+        return;
+    }
+
+    dibujando = true;
 
     contexto.beginPath();
 
@@ -213,8 +380,14 @@ function guardarDibujo() {
 
 canvas.addEventListener("pointerdown", (evento) => {
 
-    canvas.setPointerCapture(evento.pointerId);
     comenzarDibujo(evento);
+
+    if (
+        herramientaActual !== "balde" &&
+        dibujando
+    ) {
+        canvas.setPointerCapture(evento.pointerId);
+    }
 
 });
 
@@ -227,11 +400,6 @@ document.querySelectorAll(".color").forEach((boton) => {
     boton.addEventListener("click", () => {
 
         colorActual = boton.dataset.color;
-
-        herramientaActual = "pincel";
-
-        botonPincel.classList.add("activa");
-        botonGoma.classList.remove("activa");
 
         document.querySelectorAll(".color").forEach((color) => {
             color.classList.remove("activo");
@@ -262,6 +430,7 @@ botonPincel.addEventListener("click", () => {
 
     botonPincel.classList.add("activa");
     botonGoma.classList.remove("activa");
+    botonBalde.classList.remove("activa");
 });
 
 botonGoma.addEventListener("click", () => {
@@ -269,6 +438,16 @@ botonGoma.addEventListener("click", () => {
 
     botonGoma.classList.add("activa");
     botonPincel.classList.remove("activa");
+    botonBalde.classList.remove("activa");
+});
+
+botonBalde.addEventListener("click", () => {
+
+    herramientaActual = "balde";
+
+    botonBalde.classList.add("activa");
+    botonPincel.classList.remove("activa");
+    botonGoma.classList.remove("activa");
 });
 
 botonDeshacer.addEventListener("click", deshacer);
