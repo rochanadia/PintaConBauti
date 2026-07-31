@@ -9,9 +9,13 @@ const botonLimpiar = document.getElementById("limpiar");
 const botonDeshacer = document.getElementById("deshacer");
 const botonVolver = document.getElementById("volver");
 
+const botonPincel = document.getElementById("pincel");
+const botonGoma = document.getElementById("goma");
+
 let dibujando = false;
 let colorActual = "#ff3b30";
 let grosorActual = 18;
+let herramientaActual = "pincel";
 let historial = [];
 const limiteHistorial = 20;
 
@@ -41,9 +45,6 @@ function prepararLienzo() {
 function limpiarLienzo() {
 
     contexto.clearRect(0, 0, canvas.width, canvas.height);
-
-    contexto.fillStyle = "#ffffff";
-    contexto.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function guardarEstado() {
@@ -105,19 +106,33 @@ function comenzarDibujo(evento) {
     const posicion = obtenerPosicion(evento);
 
     contexto.beginPath();
-    contexto.moveTo(posicion.x, posicion.y);
 
-    // Permite hacer puntos con un solo toque.
-    contexto.fillStyle = colorActual;
+    if (herramientaActual === "goma") {
 
-    contexto.beginPath();
-    contexto.arc(
-        posicion.x,
-        posicion.y,
-        grosorActual / 2,
-        0,
-        Math.PI * 2
-    );
+        contexto.globalCompositeOperation = "destination-out";
+        contexto.fillStyle = "#000000";
+
+        contexto.arc(
+            posicion.x,
+            posicion.y,
+            grosorActual,
+            0,
+            Math.PI * 2
+        );
+
+    } else {
+
+        contexto.globalCompositeOperation = "source-over";
+        contexto.fillStyle = colorActual;
+
+        contexto.arc(
+            posicion.x,
+            posicion.y,
+            grosorActual / 2,
+            0,
+            Math.PI * 2
+        );
+    }
 
     contexto.fill();
 
@@ -135,8 +150,14 @@ function dibujar(evento) {
 
     const posicion = obtenerPosicion(evento);
 
-    contexto.strokeStyle = colorActual;
-    contexto.lineWidth = grosorActual;
+    if (herramientaActual === "goma") {
+        contexto.globalCompositeOperation = "destination-out";
+        contexto.lineWidth = grosorActual * 2;
+    } else {
+        contexto.globalCompositeOperation = "source-over";
+        contexto.strokeStyle = colorActual;
+        contexto.lineWidth = grosorActual;
+    }
 
     contexto.lineTo(posicion.x, posicion.y);
     contexto.stroke();
@@ -180,6 +201,11 @@ document.querySelectorAll(".color").forEach((boton) => {
 
         colorActual = boton.dataset.color;
 
+        herramientaActual = "pincel";
+
+        botonPincel.classList.add("activa");
+        botonGoma.classList.remove("activa");
+
         document.querySelectorAll(".color").forEach((color) => {
             color.classList.remove("activo");
         });
@@ -202,6 +228,20 @@ document.querySelectorAll(".grosor").forEach((boton) => {
         boton.classList.add("activo");
     });
 
+});
+
+botonPincel.addEventListener("click", () => {
+    herramientaActual = "pincel";
+
+    botonPincel.classList.add("activa");
+    botonGoma.classList.remove("activa");
+});
+
+botonGoma.addEventListener("click", () => {
+    herramientaActual = "goma";
+
+    botonGoma.classList.add("activa");
+    botonPincel.classList.remove("activa");
 });
 
 botonDeshacer.addEventListener("click", deshacer);
