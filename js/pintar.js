@@ -11,6 +11,7 @@ const botonVolver = document.getElementById("volver");
 
 const botonPincel = document.getElementById("pincel");
 const botonGoma = document.getElementById("goma");
+const botonGuardar = document.getElementById("guardar");
 
 let dibujando = false;
 let colorActual = "#ff3b30";
@@ -184,6 +185,32 @@ function terminarDibujo(evento) {
     }
 }
 
+function guardarDibujo() {
+
+    // Crear un canvas temporal
+    const canvasFinal = document.createElement("canvas");
+    canvasFinal.width = imagen.naturalWidth;
+    canvasFinal.height = imagen.naturalHeight;
+
+    const contextoFinal = canvasFinal.getContext("2d");
+
+    // Primero el dibujo
+    contextoFinal.drawImage(imagen, 0, 0);
+
+    // Después la pintura
+    contextoFinal.drawImage(canvas, 0, 0);
+
+    // Descargar
+    const enlace = document.createElement("a");
+
+    const nombre = archivo.replace(/\.[^/.]+$/, "");
+
+    enlace.download = `${nombre}-pintado.png`;
+    enlace.href = canvasFinal.toDataURL("image/png");
+
+    enlace.click();
+}
+
 canvas.addEventListener("pointerdown", (evento) => {
 
     canvas.setPointerCapture(evento.pointerId);
@@ -245,6 +272,8 @@ botonGoma.addEventListener("click", () => {
 });
 
 botonDeshacer.addEventListener("click", deshacer);
+
+botonGuardar.addEventListener("click", guardarDibujo);
 
 botonLimpiar.addEventListener("click", () => {
 
