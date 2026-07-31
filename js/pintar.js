@@ -13,6 +13,7 @@ const botonPincel = document.getElementById("pincel");
 const botonGoma = document.getElementById("goma");
 const botonBalde = document.getElementById("balde");
 const botonGuardar = document.getElementById("guardar");
+const mensajeGuardado = document.getElementById("mensajeGuardado");
 
 let dibujando = false;
 let colorActual = "#ff3b30";
@@ -376,6 +377,15 @@ function guardarDibujo() {
     enlace.href = canvasFinal.toDataURL("image/png");
 
     enlace.click();
+
+    // Mostrar felicitación
+    mensajeGuardado.classList.add("mostrar");
+
+    clearTimeout(mensajeGuardado.temporizador);
+
+    mensajeGuardado.temporizador = setTimeout(() => {
+        mensajeGuardado.classList.remove("mostrar");
+    }, 1800);
 }
 
 canvas.addEventListener("pointerdown", (evento) => {

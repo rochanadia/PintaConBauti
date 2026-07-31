@@ -5,11 +5,18 @@
 }
 
 body{
+    margin: 0;
 
-    background:#FFECC7;
+    font-family: Arial, Helvetica, sans-serif;
 
-    font-family:Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        180deg,
+        #fff9d6,
+        #fff3c0,
+        #ffe8b0
+    );
 
+    color: #333;
 }
 
 .contenedor{
@@ -530,23 +537,27 @@ button{
 }
 
 .tarjetaCategoria {
-    width: 280px;
-    min-height: 220px;
-    padding: 24px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    width: 300px;
+    min-height: 260px;
 
-    border: 3px solid #ffd166;
-    border-radius: 28px;
+    padding: 28px;
 
-    background: white;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
 
-    font-family: inherit;
+    border-radius:32px;
+
+    border:4px solid #ffd166;
+
+    background:white;
+
+    box-shadow:0 12px 26px rgba(0,0,0,.15);
+
+    transition:.25s;
 }
 
 .tarjetaCategoria.disponible {
@@ -557,8 +568,8 @@ button{
 }
 
 .tarjetaCategoria.disponible:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.2);
 }
 
 .tarjetaCategoria.proximamente {
@@ -566,18 +577,25 @@ button{
 }
 
 .iconoCategoria {
-    font-size: 72px;
+    font-size: 90px;
 }
 
 .nombreCategoria {
     font-size: 26px;
     font-weight: bold;
     color: #333;
+    text-align: center;
+    margin-top: 8px;
 }
 
-.estadoCategoria {
-    font-size: 17px;
-    color: #666;
+.estadoCategoria{
+
+    background:#ffd166;
+    color:#444;
+    padding:8px 18px;
+    border-radius:999px;
+    font-size:16px;
+    font-weight:bold;
 }
 
 .galeria {
@@ -637,5 +655,66 @@ button{
 @media (min-width: 850px) and (orientation: landscape) {
     .galeria {
         grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.mensajeGuardado {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 1000;
+}
+
+.mensajeGuardado.mostrar {
+    display: flex;
+}
+
+.mensajeGuardadoContenido {
+    width: min(360px, 85%);
+    padding: 30px;
+
+    background: white;
+
+    border: 5px solid #ffd166;
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+
+    animation: aparecerMensaje 0.3s ease;
+}
+
+.mensajeEmoji {
+    font-size: 70px;
+}
+
+.mensajeGuardadoContenido h2 {
+    margin: 10px 0;
+    font-size: 30px;
+    color: #333;
+}
+
+.mensajeGuardadoContenido p {
+    margin: 0;
+    font-size: 20px;
+    color: #555;
+}
+
+@keyframes aparecerMensaje {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
