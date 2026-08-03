@@ -46,7 +46,29 @@ const categorias = [
                 archivo: "huevo_percheron.png"
             }
         ]
-    }
+    },
+
+    {
+    id: "la-granja",
+    nombre: "🚜 La Granja",
+    carpeta: "la-granja",
+
+    dibujos: [
+        {
+            nombre: "La Granja 1",
+            archivo: "granja1.png"
+        },
+        {
+            nombre: "La Granja 2",
+            archivo: "granja2.png"
+        },
+        {
+            nombre: "La Granja 3",
+            archivo: "granja3.png"
+        }
+    ]
+}
+
 ];
 
 const parametros =
