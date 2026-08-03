@@ -30,6 +30,10 @@ const categorias = [
                 archivo: "huevo_pancha.png"
             },
             {
+                nombre: "Bataraza",
+                archivo: "huevo_bataraza.png"
+            },
+            {
                 nombre: "Papá",
                 archivo: "huevo_papa.png"
             },
