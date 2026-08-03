@@ -1,15 +1,15 @@
 const rompecabezas = [
     {
-        nombre: "Loro",
-        archivo: "loro.png"
+        nombre: "Bartolito",
+        archivo: "bartolito.png"
     },
     {
-        nombre: "Gallo",
-        archivo: "gallo.png"
+        nombre: "Pepe",
+        archivo: "pepe.png"
     },
     {
-        nombre: "Zenón y amigos",
-        archivo: "grupo.png"
+        nombre: "La Granja",
+        archivo: "granja1.png"
     },
     {
         nombre: "Huevos Sorpresa 1",

@@ -20,24 +20,71 @@
 
         <h1>🧩 Armá el rompecabezas</h1>
 
-        <div class="vistaRompecabezas">
+        <div class="zonaJuegoRompecabezas">
 
-            <img
-                id="imagenRompecabezas"
-                src=""
-                alt="Imagen del rompecabezas"
-                draggable="false"
-            >
+            <aside class="referenciaRompecabezas">
+
+                <p>Así tiene que quedar:</p>
+
+                <img
+                    id="imagenReferencia"
+                    src=""
+                    alt="Imagen completa de referencia"
+                    draggable="false"
+                >
+
+            </aside>
+
+            <section class="juegoRompecabezas">
+
+                <div
+                    id="tableroRompecabezas"
+                    class="tableroRompecabezas"
+                ></div>
+
+                <div
+                    id="piezasRompecabezas"
+                    class="piezasRompecabezas"
+                ></div>
+
+            </section>
 
         </div>
 
-        <button
-            id="volverGaleriaRompecabezas"
-            class="botonPrincipal"
-            type="button"
+        <div class="accionesRompecabezas">
+
+            <button
+                id="mezclarRompecabezas"
+                class="botonPrincipal"
+                type="button"
+            >
+                🔀 Mezclar
+            </button>
+
+            <button
+                id="volverGaleriaRompecabezas"
+                class="botonPrincipal"
+                type="button"
+            >
+                ⬅ Elegir otro
+            </button>
+
+        </div>
+
+        <div
+            id="mensajeRompecabezas"
+            class="mensajeGuardado"
         >
-            ⬅ Elegir otro
-        </button>
+            <div class="mensajeGuardadoContenido">
+
+                <div class="mensajeEmoji">🎉</div>
+
+                <h2>¡Muy bien, Bauti!</h2>
+
+                <p>¡Completaste el rompecabezas!</p>
+
+            </div>
+        </div>
 
     </main>
 
