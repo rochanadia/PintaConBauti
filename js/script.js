@@ -13,3 +13,15 @@ categoriasDisponibles.forEach((tarjeta) => {
     });
 
 });
+
+const botonRompecabezas =
+document.getElementById("abrirRompecabezas");
+
+if (botonRompecabezas) {
+
+    botonRompecabezas.addEventListener("click", () => {
+
+        window.location.href =
+            "rompecabezas-galeria.html";
+    });
+}

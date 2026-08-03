@@ -798,3 +798,49 @@ body {
 .galeria {
     box-sizing: border-box;
 }
+
+.pantallaRompecabezas {
+    min-height: 100vh;
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    box-sizing: border-box;
+}
+
+.pantallaRompecabezas h1 {
+    margin: 0;
+    text-align: center;
+}
+
+.vistaRompecabezas {
+    width: min(900px, 95%);
+    max-height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 14px;
+
+    background: white;
+    border: 4px solid #ffd166;
+    border-radius: 26px;
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+
+    box-sizing: border-box;
+}
+
+.vistaRompecabezas img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 65vh;
+
+    object-fit: contain;
+    border-radius: 16px;
+}
