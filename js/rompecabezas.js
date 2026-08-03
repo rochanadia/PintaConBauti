@@ -52,6 +52,23 @@ function crearRompecabezas() {
     contenedorPiezas.innerHTML = "";
 
     piezasCorrectas = 0;
+    
+    const proporcionImagen =
+        imagenReferencia.naturalWidth /
+        imagenReferencia.naturalHeight;
+
+    tablero.style.setProperty(
+        "--proporcion-imagen",
+        proporcionImagen
+    );
+
+    const proporcionPieza =
+        proporcionImagen;
+
+    document.documentElement.style.setProperty(
+        "--proporcion-pieza",
+        proporcionPieza
+    );
 
     const posiciones = mezclarArray(
         Array.from(
