@@ -306,3 +306,259 @@
         min-width: 130px;
     }
 }
+
+/* ==================================================
+   CELULAR VERTICAL
+================================================== */
+
+@media (max-width: 600px) and (orientation: portrait) {
+
+    .rompecabezasNuevo {
+        min-height: 100vh;
+    }
+
+    .rompecabezasNuevo .pantallaRompecabezas {
+        min-height: 100vh;
+        padding: 10px 10px 24px;
+    }
+
+
+    /* TÍTULO MÁS CHICO */
+
+    .tituloJuegoRompecabezas {
+        margin-bottom: 10px;
+
+        font-size: 25px;
+    }
+
+
+    /* TODO EN COLUMNA */
+
+    .rompecabezasNuevo .zonaJuegoRompecabezas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+
+        gap: 12px;
+    }
+
+
+    /* REFERENCIA CHIQUITA */
+
+    .rompecabezasNuevo .referenciaRompecabezas {
+        width: 120px;
+
+        padding: 7px;
+
+        border-width: 3px;
+        border-radius: 18px;
+    }
+
+    .rompecabezasNuevo .referenciaRompecabezas p {
+        margin: 0 0 5px;
+
+        font-size: 11px;
+    }
+
+    .rompecabezasNuevo #imagenReferencia {
+        max-height: 100px;
+
+        object-fit: contain;
+
+        border-radius: 12px;
+    }
+
+
+    /* TABLERO Y PIEZAS */
+
+    .rompecabezasNuevo .juegoRompecabezas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+
+        gap: 12px;
+    }
+
+
+    /* TABLERO */
+
+    .rompecabezasNuevo .tableroRompecabezas {
+        width: auto;
+
+        height: min(48vh, 390px);
+
+        max-width: calc(100vw - 20px);
+
+        aspect-ratio: var(--proporcion-imagen);
+
+        border-width: 4px;
+        border-radius: 20px;
+    }
+
+
+    /* PIEZAS DEBAJO */
+
+    .rompecabezasNuevo .piezasRompecabezas {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 110px));
+
+        justify-content: center;
+
+        width: auto;
+
+        gap: 8px;
+
+        padding: 10px;
+
+        border-width: 3px;
+        border-radius: 18px;
+    }
+
+    .rompecabezasNuevo .piezaRompecabezas {
+        width: 100%;
+
+        max-width: 110px;
+
+        aspect-ratio: var(--proporcion-pieza);
+    }
+
+
+    /* BOTONES */
+
+    .rompecabezasNuevo .accionesRompecabezas {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+
+        width: min(330px, 100%);
+
+        margin-top: 12px;
+    }
+
+    .botonAccionRompecabezas {
+        min-width: 0;
+
+        padding: 9px 6px;
+
+        font-size: 13px;
+    }
+}
+
+/* ==================================================
+   CELULAR HORIZONTAL
+================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .rompecabezasNuevo .pantallaRompecabezas {
+        padding: 6px 10px 10px;
+    }
+
+    .tituloJuegoRompecabezas {
+        margin-bottom: 6px;
+
+        font-size: 22px;
+    }
+
+
+    /* REFERENCIA + JUEGO EN UNA FILA */
+
+    .rompecabezasNuevo .zonaJuegoRompecabezas {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        gap: 12px;
+
+        width: 100%;
+    }
+
+
+    /* REFERENCIA */
+
+    .rompecabezasNuevo .referenciaRompecabezas {
+        width: 125px;
+
+        padding: 7px;
+
+        border-radius: 16px;
+    }
+
+    .rompecabezasNuevo .referenciaRompecabezas p {
+        margin: 0 0 4px;
+
+        font-size: 11px;
+    }
+
+    .rompecabezasNuevo #imagenReferencia {
+        max-height: 180px;
+
+        object-fit: contain;
+    }
+
+
+    /* TABLERO + PIEZAS AL LADO */
+
+    .rompecabezasNuevo .juegoRompecabezas {
+        flex: 1;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .rompecabezasNuevo .tableroRompecabezas {
+        height: calc(100vh - 95px);
+
+        width: auto;
+
+        aspect-ratio: var(--proporcion-imagen);
+    }
+
+
+    /* PIEZAS */
+
+    .rompecabezasNuevo .piezasRompecabezas {
+        grid-template-columns:
+            repeat(2, 85px);
+
+        gap: 7px;
+
+        width: auto;
+
+        padding: 8px;
+    }
+
+    .rompecabezasNuevo .piezaRompecabezas {
+        width: 85px;
+    }
+
+
+    /* BOTONES */
+
+    .rompecabezasNuevo .accionesRompecabezas {
+        margin-top: 6px;
+
+        gap: 7px;
+    }
+
+    .botonAccionRompecabezas {
+        min-width: 120px;
+
+        padding: 6px 10px;
+
+        font-size: 12px;
+    }
+}

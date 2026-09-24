@@ -436,3 +436,132 @@
         font-size: 12px;
     }
 }
+
+/* ==================================================
+   CELULAR HORIZONTAL
+================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .pintarNuevo {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .pintarNuevo .pantallaPintar {
+        height: 100vh;
+        min-height: 0;
+
+        padding: 8px 10px;
+
+        overflow: hidden;
+    }
+
+    .pintarNuevo .editorPintura {
+        height: 100%;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+
+    /* PANEL DE HERRAMIENTAS */
+
+    .pintarNuevo .herramientas {
+        width: 180px;
+        height: calc(100vh - 16px);
+        max-height: calc(100vh - 16px);
+
+        padding: 9px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        border-radius: 18px;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* DIBUJO */
+
+    .pintarNuevo .zonaDibujo {
+        flex: 1;
+
+        height: 100%;
+
+        gap: 6px;
+    }
+
+    .pintarNuevo .contenedorLienzo {
+        max-height: calc(100vh - 65px);
+    }
+
+    .pintarNuevo .contenedorLienzo img,
+    .pintarNuevo .contenedorLienzo canvas {
+        max-height: calc(100vh - 65px);
+    }
+
+
+    /* BOTONES INFERIORES */
+
+    .pintarNuevo .accionesPintar {
+        flex-wrap: nowrap;
+
+        gap: 5px;
+
+        margin: 0;
+    }
+
+    .pintarNuevo .accionesPintar button {
+        min-width: 0;
+
+        padding: 6px 8px;
+
+        font-size: 12px;
+
+        border-width: 2px;
+        border-radius: 12px;
+    }
+
+
+    /* PANEL MÁS COMPACTO */
+
+    .pintarNuevo .tituloHerramientas {
+        margin: 3px 0 5px;
+
+        font-size: 14px;
+    }
+
+    .pintarNuevo .herramientasDibujo {
+        gap: 5px;
+    }
+
+    .pintarNuevo .herramienta {
+        min-height: 34px;
+
+        padding: 5px;
+
+        font-size: 12px;
+    }
+
+    .pintarNuevo .paleta {
+        gap: 4px;
+
+        margin: 5px 0 7px;
+    }
+
+    .pintarNuevo .color {
+        width: 28px;
+        height: 28px;
+    }
+
+    .pintarNuevo .grosor {
+        min-height: 34px;
+
+        padding: 5px 1px;
+
+        font-size: 11px;
+    }
+}
