@@ -21,3 +21,129 @@
 
     --color-blanco: #ffffff;
 }
+
+/* ==================================================
+   MENSAJE DE FELICITACIÓN
+================================================== */
+
+.mensajeGuardado {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(77, 91, 124, 0.18);
+    backdrop-filter: blur(3px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.mensajeGuardado.mostrar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* TARJETA */
+
+.mensajeGuardadoContenido {
+    width: min(330px, 88vw);
+
+    padding: 28px 24px 26px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 5px solid white;
+    border-radius: 32px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 0 rgba(77, 91, 124, 0.08),
+        0 18px 35px rgba(77, 91, 124, 0.16);
+
+    transform: scale(0.88);
+
+    transition: transform 0.25s ease;
+}
+
+.mensajeGuardado.mostrar .mensajeGuardadoContenido {
+    transform: scale(1);
+}
+
+
+/* EMOJI */
+
+.mensajeEmoji {
+    margin-bottom: 8px;
+
+    font-size: 58px;
+    line-height: 1;
+}
+
+
+/* TEXTO */
+
+.mensajeGuardadoContenido h2 {
+    margin: 4px 0 7px;
+
+    color: var(--color-texto-principal);
+
+    font-family: "Fredoka", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.mensajeGuardadoContenido p {
+    margin: 0;
+
+    color: var(--color-texto-suave);
+
+    font-family: "Fredoka", Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+
+    line-height: 1.35;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .mensajeGuardadoContenido {
+        width: min(300px, 86vw);
+
+        padding: 24px 18px 22px;
+
+        border-radius: 26px;
+    }
+
+    .mensajeEmoji {
+        font-size: 50px;
+    }
+
+    .mensajeGuardadoContenido h2 {
+        font-size: 24px;
+    }
+
+    .mensajeGuardadoContenido p {
+        font-size: 15px;
+    }
+}
