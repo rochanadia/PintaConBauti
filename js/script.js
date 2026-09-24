@@ -1,27 +1,13 @@
-const categoriasDisponibles =
-document.querySelectorAll(".tarjetaCategoria.disponible");
-
-categoriasDisponibles.forEach((tarjeta) => {
-
-    tarjeta.addEventListener("click", () => {
-
-        const categoria = tarjeta.dataset.categoria;
-
-        window.location.href =
-            `galeria.html?categoria=${encodeURIComponent(categoria)}`;
-
-    });
-
-});
+const botonColorear =
+    document.getElementById("abrirColorear");
 
 const botonRompecabezas =
-document.getElementById("abrirRompecabezas");
+    document.getElementById("abrirRompecabezas");
 
-if (botonRompecabezas) {
+botonColorear.addEventListener("click", () => {
+    window.location.href = "categorias.html";
+});
 
-    botonRompecabezas.addEventListener("click", () => {
-
-        window.location.href =
-            "rompecabezas-galeria.html";
-    });
-}
+botonRompecabezas.addEventListener("click", () => {
+    window.location.href = "rompecabezas-galeria.html";
+});

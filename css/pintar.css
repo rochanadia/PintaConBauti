@@ -1,0 +1,292 @@
+/* ==================================================
+   PINTAR - JUGÁ CON BAUTI
+================================================== */
+
+.pintarNuevo {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: "Fredoka", Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--color-cielo-claro) 0%,
+            var(--color-cielo-suave) 100%
+        );
+
+    color: var(--color-texto-principal);
+}
+
+
+/* TÍTULO */
+
+.pintarNuevo .pantallaPintar {
+    min-height: 100vh;
+    padding: 16px 20px 18px;
+
+    box-sizing: border-box;
+}
+
+
+/* ÁREA PRINCIPAL */
+
+.pintarNuevo .editorPintura {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 28px;
+
+    width: min(1120px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* PANEL IZQUIERDO */
+
+.pintarNuevo .herramientas {
+    width: 220px;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 4px solid rgba(255, 255, 255, 0.95);
+    border-radius: 26px;
+
+    box-shadow:
+        0 7px 0 rgba(77, 91, 124, 0.08),
+        0 13px 22px rgba(0, 0, 0, 0.06);
+
+    max-height: calc(100vh - 75px);
+
+    overflow-y: visible;
+}
+
+
+/* TÍTULOS DEL PANEL */
+
+.pintarNuevo .tituloHerramientas {
+    margin: 3px 0 7px;
+
+    color: var(--color-texto-principal);
+
+    font-size: 17px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* BOTONES DE HERRAMIENTAS */
+
+.pintarNuevo .herramientasDibujo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.pintarNuevo .herramienta {
+    min-height: 42px;
+
+    padding: 8px 12px;
+
+    border: 2px solid transparent;
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    color: var(--color-texto-principal);
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 8px rgba(77, 91, 124, 0.08);
+
+    cursor: pointer;
+}
+
+.pintarNuevo .herramienta.activa {
+    border-color: var(--color-rosa);
+
+    background: #fff4f7;
+}
+
+
+/* PALETA */
+
+.pintarNuevo .paleta {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 6px;
+
+    margin: 6px 0 8px;
+}
+
+.pintarNuevo .color {
+    width: 36px;
+    height: 36px;
+
+    margin: auto;
+
+    border: 3px solid white;
+    border-radius: 50%;
+
+    box-shadow:
+        0 2px 5px rgba(77, 91, 124, 0.18);
+
+    cursor: pointer;
+}
+
+.pintarNuevo .color.activo {
+    outline: 3px solid var(--color-texto-principal);
+    outline-offset: 2px;
+}
+
+
+/* GROSORES */
+
+.pintarNuevo .grosores {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.pintarNuevo .grosor {
+    min-width: 0;
+    min-height: 42px;
+    padding: 8px 2px;
+
+    border: 2px solid transparent;
+    border-radius: 12px;
+
+    background: white;
+    color: var(--color-texto-principal);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.pintarNuevo .grosor.activo {
+    border-color: var(--color-rosa);
+    background: #fff4f7;
+}
+
+
+/* ZONA DEL DIBUJO */
+
+.pintarNuevo .zonaDibujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.pintarNuevo .contenedorLienzo {
+    position: relative;
+
+    background: white;
+
+    border: 5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 0 rgba(77, 91, 124, 0.08),
+        0 15px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ACCIONES */
+
+.pintarNuevo .accionesPintar {
+    display: flex;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+.pintarNuevo .accionesPintar button {
+    min-width: 112px;
+
+    padding: 10px 16px;
+
+    border: 3px solid white;
+    border-radius: 16px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    color: var(--color-texto-principal);
+
+    box-shadow:
+        0 4px 8px rgba(77, 91, 124, 0.10);
+
+    cursor: pointer;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .pintarNuevo .editorPintura {
+        gap: 14px;
+    }
+
+    .pintarNuevo .herramientas {
+        width: 190px;
+        padding: 10px;
+    }
+
+    .pintarNuevo .color {
+        width: 32px;
+        height: 32px;
+    }
+
+    .pintarNuevo .accionesPintar button {
+        min-width: auto;
+        padding: 9px 12px;
+    }
+}
+
+.pintarNuevo .pantallaPintar {
+    padding-bottom: 30px;
+}
+
+.pintarNuevo .herramientas {
+    max-height: none;
+    overflow: visible;
+}
+
+.pintarNuevo .accionesPintar {
+    flex-wrap: wrap;
+}
+
+.pintarNuevo .zonaDibujo {
+    gap: 14px;
+}
+
+.pintarNuevo .accionesPintar {
+    margin-bottom: 12px;
+}

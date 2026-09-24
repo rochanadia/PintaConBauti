@@ -1,0 +1,515 @@
+/* ==================================================
+   NUEVO INICIO - JUGÁ CON BAUTI
+================================================== */
+
+.inicioNuevo {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: "Fredoka", Arial, sans-serif;
+
+    background:
+    linear-gradient(
+        180deg,
+        var(--color-cielo-claro) 0%,
+        var(--color-cielo-suave) 100%
+    );
+
+    color: var(--color-texto-principal);
+    overflow-x: hidden;
+}
+
+.pantallaMenuPrincipal {
+    position: relative;
+
+    min-height: 100vh;
+    padding: 32px 20px 130px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    justify-content: flex-start;
+}
+
+.decoracionCielo {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.nube {
+    position: absolute;
+
+    width: 85px;
+    height: 30px;
+
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 999px;
+
+    font-size: 0;
+
+    opacity: 0.8;
+
+    filter: none;
+
+    box-shadow:
+        0 8px 18px rgba(88, 130, 160, 0.07);
+
+    user-select: none;
+}
+
+.nube::before,
+.nube::after {
+    content: "";
+    position: absolute;
+
+    background: inherit;
+    border-radius: 50%;
+}
+
+.nube::before {
+    width: 42px;
+    height: 42px;
+
+    left: 14px;
+    bottom: 7px;
+}
+
+.nube::after {
+    width: 52px;
+    height: 52px;
+
+    right: 10px;
+    bottom: 3px;
+}
+
+.nubeUno {
+    top: 10%;
+    left: 7%;
+}
+
+.nubeDos {
+    top: 20%;
+    left: 18%;
+
+    transform: scale(0.65);
+    opacity: 0.55;
+}
+
+.nubeTres {
+    top: 12%;
+    right: 8%;
+
+    transform: scale(0.85);
+    opacity: 0.7;
+}
+
+.lomitaFondo {
+    position: absolute;
+
+    left: -10%;
+    bottom: -22%;
+
+    width: 120%;
+    height: 58%;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--color-pasto-claro),
+            var(--color-pasto-oscuro)
+        );
+
+    border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.logoPrincipal {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    text-align: center;
+
+    margin: 0 auto;
+
+    flex-shrink: 0;
+}
+
+.logoPrincipal h1 {
+    margin: 0;
+
+    font-size: clamp(46px, 6vw, 74px);
+    font-weight: 700;
+
+    line-height: 1.05;
+
+    color: var(--color-texto-principal);
+
+    text-align: center;
+
+    text-shadow:
+        0 3px 0 white,
+        0 6px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logoPrincipal p {
+    display: inline-block;
+
+    margin: 14px auto 26px;
+    padding: 9px 24px;
+
+    background: var(--color-rosa);
+    color: var(--color-blanco);
+
+    border-radius: 999px;
+
+    font-size: clamp(16px, 2vw, 21px);
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+.preguntaPrincipal {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    margin: 0 0 20px;
+
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 600;
+
+    line-height: 1.15;
+
+    text-align: center;
+
+    color: var(--color-texto-principal);
+}
+
+.actividadesPrincipal {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    gap: 26px;
+
+    width: min(760px, 96%);
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+.tarjetaActividad {
+    width: min(350px, 90vw);
+    min-height: 300px;
+
+    padding: 24px 24px 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    border: 6px solid rgba(255, 255, 255, 0.95);
+    border-radius: 34px;
+
+    font-family: inherit;
+
+    box-shadow:
+        0 8px 0 rgba(77, 91, 124, 0.10),
+        0 15px 25px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.tarjetaColorear {
+    background:
+        linear-gradient(
+            145deg,
+            #fff1b8,
+            #ffd878
+        );
+}
+
+.tarjetaRompecabezas {
+    background:
+        linear-gradient(
+            145deg,
+            #c9eee6,
+            #93d8cb
+        );
+}
+
+.iconoActividadImagen {
+    width: 180px;
+    height: 155px;
+
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 5px 6px rgba(0, 0, 0, 0.10));
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.nombreActividad {
+    width: 100%;
+    text-align: center;
+
+    font-size: clamp(32px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.05;
+
+    color: var(--color-texto-principal);
+}
+
+.tarjetaActividad:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 0 rgba(77, 91, 124, 0.10),
+        0 18px 28px rgba(0, 0, 0, 0.10);
+}
+
+.tarjetaActividad:active {
+    transform: translateY(2px) scale(0.99);
+
+    box-shadow:
+        0 5px 0 rgba(77, 91, 124, 0.10),
+        0 9px 16px rgba(0, 0, 0, 0.08);
+}
+
+.mascotaInicio {
+    position: absolute;
+    z-index: 3;
+
+    left: 45px;
+    bottom: 16px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 10px;
+}
+
+.imagenMascota {
+    width: 155px;
+    height: auto;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 8px 10px rgba(0, 0, 0, 0.08));
+}
+
+.mensajeMascota {
+    max-width: 220px;
+
+    margin-bottom: 26px;
+
+    padding: 14px 18px;
+
+    background: rgba(255, 247, 251, 0.97);
+
+    border: 3px solid var(--color-borde-rosa);
+    border-radius: 22px;
+
+    color: var(--color-texto-suave);
+
+    font-size: 17px;
+    line-height: 1.4;
+
+    text-align: left;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.botonVolverNuevo {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+
+    width: 60px;
+    height: 60px;
+
+    border: 4px solid white;
+    border-radius: 50%;
+
+    background: #ff6685;
+    color: white;
+
+    font-family: inherit;
+    font-size: 34px;
+    font-weight: bold;
+
+    box-shadow: 0 7px 0 #d94466;
+
+    cursor: pointer;
+}
+
+.botonVolverNuevo:active {
+    transform: translateY(4px);
+    box-shadow: 0 3px 0 #d94466;
+}
+
+@media (max-width: 700px) {
+
+    .pantallaMenuPrincipal {
+        padding-bottom: 170px;
+    }
+
+    .tarjetaActividad {
+        min-height: 210px;
+    }
+
+    .iconoActividadImagen {
+        width: 100px;
+        height: 100px;
+    }
+
+    .actividadesPrincipal {
+        gap: 20px;
+    }
+
+    .mascotaInicio {
+        left: 12px;
+        bottom: 18px;
+    }
+
+    .mensajeMascota {
+        max-width: 130px;
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .nubeDos {
+        display: none;
+    }
+}
+
+.decoracionPasto {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 35%;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pasto {
+    position: absolute;
+    bottom: 20%;
+
+    width: 10px;
+    height: 32px;
+
+    background: #58b96c;
+    border-radius: 50% 50% 20% 20%;
+
+    opacity: 0.65;
+
+    transform-origin: bottom center;
+}
+
+.pasto::before,
+.pasto::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+
+    width: 10px;
+    height: 27px;
+
+    background: inherit;
+    border-radius: 50% 50% 20% 20%;
+
+    transform-origin: bottom center;
+}
+
+.pasto::before {
+    left: -8px;
+    transform: rotate(-35deg);
+}
+
+.pasto::after {
+    right: -8px;
+    transform: rotate(35deg);
+}
+
+
+/* Posiciones */
+
+.pasto1 {
+    left: 12%;
+    bottom: 32%;
+}
+
+.pasto2 {
+    left: 28%;
+    bottom: 12%;
+    transform: scale(.8);
+}
+
+.pasto3 {
+    left: 43%;
+    bottom: 38%;
+    transform: scale(.7);
+}
+
+.pasto4 {
+    left: 58%;
+    bottom: 10%;
+}
+
+.pasto5 {
+    left: 72%;
+    bottom: 34%;
+    transform: scale(.75);
+}
+
+.pasto6 {
+    left: 85%;
+    bottom: 15%;
+    transform: scale(.9);
+}
+
+.pasto7 {
+    left: 94%;
+    bottom: 42%;
+    transform: scale(.65);
+}

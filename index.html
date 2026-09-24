@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,75 +9,110 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Pintá con Bauti</title>
+    <title>Jugá con Bauti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="css/styles.css">
-
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/inicio.css">
 </head>
 
-<body>
+<body class="inicioNuevo">
 
-    <div class="contenedor">
+    <main class="pantallaMenuPrincipal">
 
-        <h1>🎨 Pintá con Bauti</h1>
-
-        <p class="subtitulo">
-            ¡Elegí una aventura para empezar!
-        </p>
-
-        <div class="categorias">
-
-            <button
-                class="tarjetaCategoria disponible"
-                data-categoria="huevos-sorpresa"
-                type="button"
-            >
-                <span class="iconoCategoria">🥚</span>
-
-                <span class="nombreCategoria">
-                    Huevos Sorpresa
-                </span>
-
-                <span class="estadoCategoria">
-                    Elegir dibujos
-                </span>
-            </button>
-
-            <button
-                class="tarjetaCategoria disponible"
-                data-categoria="la-granja"
-                type="button"
-            >
-                <span class="iconoCategoria">🚜</span>
-
-                <span class="nombreCategoria">
-                    La Granja
-                </span>
-
-                <span class="estadoCategoria">
-                    Elegir dibujos
-                </span>
-            </button>
-
-            <button
-                id="abrirRompecabezas"
-                class="tarjetaCategoria disponible"
-                type="button"
->
-                <span class="iconoCategoria">🧩</span>
-
-                <span class="nombreCategoria">
-                    Rompecabezas
-                </span>
-
-                <span class="estadoCategoria">
-                    Elegir imagen
-                </span>
-            </button>
-            
+        <div class="decoracionCielo">
+            <span class="nube nubeUno">☁️</span>
+            <span class="nube nubeDos">☁️</span>
+            <span class="nube nubeTres">☁️</span>
         </div>
 
-    </div>
+        <div class="lomitaFondo"></div>
+
+        <div class="decoracionPasto">
+            <span class="pasto pasto1"></span>
+            <span class="pasto pasto2"></span>
+            <span class="pasto pasto3"></span>
+            <span class="pasto pasto4"></span>
+            <span class="pasto pasto5"></span>
+            <span class="pasto pasto6"></span>
+            <span class="pasto pasto7"></span>
+        </div>
+
+        <header class="logoPrincipal">
+
+            
+            <h1>
+                Jugá con Bauti
+            </h1>
+
+            <p>
+                Diversión para aprender jugando
+            </p>
+
+        </header>
+
+        <h2 class="preguntaPrincipal">
+            ¿Qué querés hacer hoy?
+        </h2>
+
+<section class="actividadesPrincipal">
+
+    <button
+        id="abrirColorear"
+        class="tarjetaActividad tarjetaColorear"
+        type="button"
+    >
+        <img
+            src="imagenes/iconos/colorear.png"
+            alt=""
+            class="iconoActividadImagen"
+        >
+
+        <span class="nombreActividad">
+            Colorear
+        </span>
+    </button>
+
+    <button
+        id="abrirRompecabezas"
+        class="tarjetaActividad tarjetaRompecabezas"
+        type="button"
+    >
+        <img
+            src="imagenes/iconos/rompecabezas.png"
+            alt=""
+            class="iconoActividadImagen"
+        >
+
+        <span class="nombreActividad">
+            Rompecabezas
+        </span>
+    </button>
+
+</section>
+
+   <!--      <div class="mascotaInicio">
+            <img
+                src="imagenes/mascota/mimi_saluda.png"
+                alt="Mimí"
+                class="imagenMascota"
+            >
+
+            <div class="mensajeMascota">
+                <strong>¡Hola Bauti!</strong><br>
+                ¿Jugamos un ratito?
+            </div>
+        </div> -->
+    
+    </main>
 
     <script src="js/script.js"></script>
 

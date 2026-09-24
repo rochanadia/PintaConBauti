@@ -1,0 +1,308 @@
+/* ==================================================
+   JUEGO ROMPECABEZAS - JUGÁ CON BAUTI
+================================================== */
+
+.rompecabezasNuevo {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: "Fredoka", Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--color-cielo-claro) 0%,
+            var(--color-cielo-suave) 100%
+        );
+
+    color: var(--color-texto-principal);
+}
+
+
+/* PANTALLA */
+
+.rompecabezasNuevo .pantallaRompecabezas {
+    min-height: 100vh;
+
+    padding: 18px 24px 24px;
+
+    box-sizing: border-box;
+}
+
+
+/* TÍTULO */
+
+.tituloJuegoRompecabezas {
+    margin: 0 auto 16px;
+
+    color: var(--color-texto-principal);
+
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    text-align: center;
+}
+
+
+/* ZONA PRINCIPAL */
+
+.rompecabezasNuevo .zonaJuegoRompecabezas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+
+    width: min(1150px, 96%);
+    margin: 0 auto;
+}
+
+
+/* REFERENCIA */
+
+.rompecabezasNuevo .referenciaRompecabezas {
+    width: 220px;
+
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 4px solid rgba(255, 255, 255, 0.95);
+    border-radius: 26px;
+
+    box-shadow:
+        0 7px 0 rgba(77, 91, 124, 0.08),
+        0 13px 22px rgba(0, 0, 0, 0.06);
+}
+
+.rompecabezasNuevo .referenciaRompecabezas p {
+    margin: 2px 0 10px;
+
+    color: var(--color-texto-principal);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+.rompecabezasNuevo #imagenReferencia {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    border-radius: 18px;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* JUEGO */
+
+.rompecabezasNuevo .juegoRompecabezas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+}
+
+
+/* TABLERO */
+
+.rompecabezasNuevo .tableroRompecabezas {
+    height: min(500px, calc(100vh - 150px));
+    aspect-ratio: var(--proporcion-imagen);
+
+    width: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    overflow: hidden;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.85) 0px,
+            rgba(255, 255, 255, 0.85) 10px,
+            rgba(255, 239, 190, 0.45) 10px,
+            rgba(255, 239, 190, 0.45) 20px
+        );
+
+    border: 5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 0 rgba(77, 91, 124, 0.08),
+        0 15px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+/* CASILLEROS */
+
+.rompecabezasNuevo .casilleroRompecabezas {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    border: 2px dashed rgba(89, 104, 140, 0.22);
+}
+
+
+/* PIEZAS DISPONIBLES */
+
+.rompecabezasNuevo .piezasRompecabezas {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+
+    gap: 12px;
+
+    width: auto;
+    padding: 14px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+
+    box-shadow:
+        0 6px 14px rgba(77, 91, 124, 0.07);
+}
+
+
+/* PIEZA */
+
+.rompecabezasNuevo .piezaRompecabezas {
+    width: 120px;
+
+    aspect-ratio: var(--proporcion-pieza);
+
+    background-repeat: no-repeat;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 7px rgba(77, 91, 124, 0.16);
+
+    cursor: grab;
+    touch-action: none;
+
+    box-sizing: border-box;
+}
+
+.rompecabezasNuevo .piezaRompecabezas:active {
+    cursor: grabbing;
+}
+
+.rompecabezasNuevo .piezaRompecabezas.arrastrando {
+    opacity: 0.92;
+
+    box-shadow:
+        0 10px 20px rgba(77, 91, 124, 0.22);
+}
+
+.rompecabezasNuevo .piezaRompecabezas.correcta {
+    border-radius: 0;
+
+    box-shadow: none;
+
+    cursor: default;
+}
+
+
+/* BOTONES */
+
+.rompecabezasNuevo .accionesRompecabezas {
+    display: flex;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 18px auto 0;
+}
+
+.botonAccionRompecabezas {
+    min-width: 150px;
+
+    padding: 11px 18px;
+
+    border: 3px solid white;
+    border-radius: 16px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    color: var(--color-texto-principal);
+
+    box-shadow:
+        0 4px 8px rgba(77, 91, 124, 0.10);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.botonMezclar {
+    background: #d8eee9;
+}
+
+.botonElegirOtro {
+    background: #ffe5a9;
+}
+
+.botonAccionRompecabezas:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 2px 5px rgba(77, 91, 124, 0.10);
+}
+
+
+/* TABLET / CELULAR */
+
+@media (max-width: 800px) {
+
+    .rompecabezasNuevo .pantallaRompecabezas {
+        padding: 14px 12px 22px;
+    }
+
+    .tituloJuegoRompecabezas {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .rompecabezasNuevo .zonaJuegoRompecabezas {
+        gap: 14px;
+    }
+
+    .rompecabezasNuevo .referenciaRompecabezas {
+        width: 170px;
+        padding: 10px;
+    }
+
+   
+    .rompecabezasNuevo .accionesRompecabezas {
+        flex-wrap: wrap;
+    }
+
+    .botonAccionRompecabezas {
+        min-width: 130px;
+    }
+}

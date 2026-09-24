@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Colorear - Jugá con Bauti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/categorias.css">
+
+</head>
+
+<body class="categoriasNuevo">
+
+    <main class="pantallaInicio">
+
+        <button
+            id="volverInicio"
+            class="botonVolverNuevo"
+            type="button"
+        >
+            ←
+        </button>
+
+        <h1 class="tituloColorear">
+            <img
+                src="imagenes/iconos/colorear.png"
+                alt=""
+                class="iconoTituloColorear"
+            >
+            <span>Colorear</span>
+        </h1>
+        <p class="subtitulo">
+            ¿Qué querés pintar?
+        </p>
+
+        <div class="categorias">
+
+            <button
+                class="tarjetaCategoria disponible"
+                data-categoria="huevos-sorpresa"
+                type="button"
+            >
+                <img
+                    src="imagenes/iconos/huevos-sorpresa.png"
+                    alt=""
+                    class="iconoCategoriaImagen"
+                >
+
+                <span class="nombreCategoria">
+                    Huevos Sorpresa
+                </span>
+
+                <span class="estadoCategoria">
+                    Elegir dibujos
+                </span>
+            </button>
+
+            <button
+                class="tarjetaCategoria disponible"
+                data-categoria="la-granja"
+                type="button"
+            >
+                <img
+                    src="imagenes/iconos/la-granja.png"
+                    alt=""
+                    class="iconoCategoriaImagen"
+                >
+
+                <span class="nombreCategoria">
+                    La Granja
+                </span>
+
+                <span class="estadoCategoria">
+                    Elegir dibujos
+                </span>
+            </button>
+
+        </div>
+
+    </main>
+
+    <script src="js/categorias.js"></script>
+
+</body>
+
+</html>

@@ -1,7 +1,8 @@
 const categorias = [
     {
         id: "huevos-sorpresa",
-        nombre: "🥚 Huevos Sorpresa",
+        nombre: "Huevos Sorpresa",
+        icono: "imagenes/iconos/huevos-sorpresa.png",
         carpeta: "huevos-sorpresa",
 
         dibujos: [
@@ -49,11 +50,24 @@ const categorias = [
     },
 
     {
-    id: "la-granja",
-    nombre: "🚜 La Granja",
-    carpeta: "la-granja",
+        id: "la-granja",
+        nombre: "La Granja",
+        icono: "imagenes/iconos/la-granja.png",
+        carpeta: "la-granja",
 
-    dibujos: [
+        dibujos: [
+        {
+            nombre: "Bartolito",
+            archivo: "bartolito.png"
+        },
+        {
+            nombre: "Pepe",
+            archivo: "pepe.png"
+        },
+        {
+            nombre: "Percherón",
+            archivo: "percheron.png"
+        },
         {
             nombre: "La Granja 1",
             archivo: "granja1.png"
@@ -61,14 +75,9 @@ const categorias = [
         {
             nombre: "La Granja 2",
             archivo: "granja2.png"
-        },
-        {
-            nombre: "La Granja 3",
-            archivo: "granja3.png"
         }
     ]
 }
-
 ];
 
 const parametros =
@@ -96,8 +105,14 @@ if (!categoria) {
 
 } else {
 
-    tituloCategoria.textContent =
-        categoria.nombre;
+    tituloCategoria.innerHTML = `
+        <img
+            src="${categoria.icono}"
+            alt=""
+            class="iconoTituloGaleria"
+        >
+        <span>${categoria.nombre}</span>
+    `;
 
     categoria.dibujos.forEach((dibujo) => {
 
@@ -132,5 +147,5 @@ if (!categoria) {
 }
 
 botonVolver.addEventListener("click", () => {
-    window.location.href = "index.html";
+    window.location.href = "categorias.html";
 });

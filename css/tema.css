@@ -1,0 +1,23 @@
+:root {
+    --color-cielo-claro: #cfefff;
+    --color-cielo-suave: #e5f6ff;
+
+    --color-pasto-claro: #a9dca5;
+    --color-pasto-oscuro: #8fce8b;
+
+    --color-texto-principal: #4d5b7c;
+    --color-texto-suave: #68728f;
+
+    --color-amarillo: #ffd166;
+    --color-amarillo-claro: #ffe59a;
+
+    --color-verde: #8ed9c9;
+    --color-verde-claro: #b6e9df;
+
+    --color-rosa: #f2a6b7;
+    --color-rosa-suave: #fff7fb;
+
+    --color-borde-rosa: #efc6d2;
+
+    --color-blanco: #ffffff;
+}

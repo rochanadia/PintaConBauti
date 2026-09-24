@@ -11,14 +11,26 @@
 
     <title>Armá el rompecabezas</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/rompecabezas.css">
 </head>
 
-<body>
+<body class="rompecabezasNuevo">
 
     <main class="pantallaRompecabezas">
 
-        <h1>🧩 Armá el rompecabezas</h1>
+        <h1 class="tituloJuegoRompecabezas">
+            Armá el rompecabezas
+        </h1>
 
         <div class="zonaJuegoRompecabezas">
 
@@ -55,7 +67,7 @@
 
             <button
                 id="mezclarRompecabezas"
-                class="botonPrincipal"
+                class="botonAccionRompecabezas botonMezclar"
                 type="button"
             >
                 🔀 Mezclar
@@ -63,7 +75,7 @@
 
             <button
                 id="volverGaleriaRompecabezas"
-                class="botonPrincipal"
+                class="botonAccionRompecabezas botonElegirOtro"
                 type="button"
             >
                 ⬅ Elegir otro

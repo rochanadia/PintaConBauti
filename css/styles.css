@@ -970,10 +970,12 @@ body {
 }
 
 .piezaRompecabezas.arrastrando {
-    transform: scale(1.08);
+    transform: scale(1.18);
 
     box-shadow:
-        0 14px 30px rgba(0, 0, 0, 0.32);
+        0 18px 35px rgba(0,0,0,.35);
+
+    z-index: 999;
 }
 
 .piezaRompecabezas.correcta {
@@ -1004,27 +1006,51 @@ body {
     }
 }
 
-@media (max-width: 850px), (orientation: portrait) {
+@media (max-width: 850px) {
 
     .zonaJuegoRompecabezas {
+
         flex-direction: column;
+
+        gap: 18px;
     }
 
     .referenciaRompecabezas {
-        width: min(240px, 75%);
+
+        width: 180px;
     }
 
     .juegoRompecabezas {
+
         width: 100%;
+
         flex-direction: column;
+
+        gap: 18px;
     }
 
     .tableroRompecabezas {
-        width: min(90vw, 470px);
+
+        width: 96vw;
+
+        max-width: 520px;
     }
 
     .piezasRompecabezas {
-        width: min(90vw, 470px);
-        grid-template-columns: repeat(4, 1fr);
+
+        width: 96vw;
+
+        max-width: 520px;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
     }
+
+    .piezaRompecabezas {
+
+        min-height: 120px;
+    }
+
 }
+

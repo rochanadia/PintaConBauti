@@ -1,0 +1,318 @@
+/* ==================================================
+   GALERÍA ROMPECABEZAS - JUGÁ CON BAUTI
+================================================== */
+
+.rompecabezasGaleriaNueva {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: "Fredoka", Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--color-cielo-claro) 0%,
+            var(--color-cielo-suave) 100%
+        );
+
+    color: var(--color-texto-principal);
+}
+
+
+/* PANTALLA */
+
+.pantallaGaleriaRompecabezas {
+    position: relative;
+
+    min-height: 100vh;
+    padding: 26px 24px 100px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* LOMITA */
+
+.pantallaGaleriaRompecabezas::after {
+    content: "";
+
+    position: absolute;
+
+    left: -10%;
+    bottom: -25%;
+
+    width: 120%;
+    height: 48%;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--color-pasto-claro),
+            var(--color-pasto-oscuro)
+        );
+
+    border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* TÍTULO */
+
+.tituloRompecabezas {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 0 auto 4px;
+
+    color: var(--color-texto-principal);
+
+    font-size: clamp(38px, 5vw, 56px);
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    text-shadow:
+        0 3px 0 white,
+        0 6px 8px rgba(0, 0, 0, 0.07);
+}
+
+
+.iconoTituloRompecabezas {
+    width: 70px;
+    height: 70px;
+
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 4px 5px rgba(0, 0, 0, 0.08));
+}
+
+
+/* SUBTÍTULO */
+
+.subtituloRompecabezas {
+    position: relative;
+    z-index: 2;
+
+    margin: 5px auto 24px;
+
+    color: var(--color-texto-suave);
+
+    font-size: clamp(19px, 2vw, 25px);
+    font-weight: 500;
+
+    text-align: center;
+}
+
+
+/* GALERÍA */
+
+.rompecabezasGaleriaNueva .galeria {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+
+    width: min(900px, 94%);
+
+    margin: 0 auto;
+}
+
+
+/* TARJETAS */
+
+.rompecabezasGaleriaNueva .tarjeta {
+    min-width: 0;
+    padding: 12px 12px 14px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 28px;
+
+    box-shadow:
+        0 7px 0 rgba(77, 91, 124, 0.08),
+        0 13px 22px rgba(0, 0, 0, 0.07);
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.rompecabezasGaleriaNueva .tarjeta:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 9px 0 rgba(77, 91, 124, 0.08),
+        0 17px 26px rgba(0, 0, 0, 0.09);
+}
+
+
+.rompecabezasGaleriaNueva .tarjeta:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+
+/* IMÁGENES */
+
+.rompecabezasGaleriaNueva .tarjeta img {
+    width: 100%;
+    height: 170px;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 20px;
+}
+
+
+/* NOMBRES */
+
+.rompecabezasGaleriaNueva .tarjeta p {
+    margin: 10px 4px 2px;
+
+    color: var(--color-texto-principal);
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.15;
+
+    text-align: center;
+}
+
+
+/* BOTÓN VOLVER */
+
+.botonVolverRompecabezas {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 10;
+
+    width: 52px;
+    height: 52px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid white;
+    border-radius: 50%;
+
+    background: var(--color-rosa);
+    color: white;
+
+    font-family: "Fredoka", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 4px 8px rgba(77, 91, 124, 0.12);
+
+    cursor: pointer;
+}
+
+.botonVolverRompecabezas::before,
+.botonVolverRompecabezas::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+.botonVolverRompecabezas:active {
+    transform: scale(0.96);
+}
+
+
+/* TABLET / CELULAR */
+
+@media (max-width: 700px) {
+
+    .pantallaGaleriaRompecabezas {
+        padding:
+            80px
+            14px
+            80px;
+    }
+
+    .tituloRompecabezas {
+        font-size: 34px;
+    }
+
+    .iconoTituloRompecabezas {
+        width: 54px;
+        height: 54px;
+    }
+
+    .subtituloRompecabezas {
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+
+    .rompecabezasGaleriaNueva .galeria {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 14px;
+
+        width: 100%;
+    }
+
+    .rompecabezasGaleriaNueva .tarjeta img {
+        height: 130px;
+    }
+
+    .rompecabezasGaleriaNueva .tarjeta p {
+        font-size: 15px;
+    }
+
+    .botonVolverRompecabezas {
+        top: 16px;
+        left: 16px;
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 28px;
+    }
+}
+
+.botonVolverRompecabezas::before,
+.botonVolverRompecabezas::after {
+    content: none !important;
+    display: none !important;
+}
+
+.botonVolverRompecabezas {
+    text-indent: 0 !important;
+}
