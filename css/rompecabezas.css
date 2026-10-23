@@ -157,7 +157,7 @@
 
     box-sizing: border-box;
 
-    border: 2px dashed rgba(89, 104, 140, 0.22);
+    border: none;
 }
 
 
@@ -380,7 +380,7 @@
 
         width: 100%;
 
-        gap: 12px;
+        gap: 8px;
     }
 
 
@@ -388,15 +388,12 @@
 
     .rompecabezasNuevo .tableroRompecabezas {
         width: auto;
-
-        height: min(48vh, 390px);
-
-        max-width: calc(100vw - 20px);
-
+        height: min(38vh, 300px);
+        max-width: calc(100vw - 30px);
         aspect-ratio: var(--proporcion-imagen);
 
-        border-width: 4px;
-        border-radius: 20px;
+        border-width: 3px;
+        border-radius: 18px;
     }
 
 
