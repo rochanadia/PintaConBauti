@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memoria - Jugá con Bauti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tema.css">
+    <link rel="stylesheet" href="css/memoria.css">
+</head>
+
+<body class="memoriaNueva">
+
+    <main class="pantallaMemoria">
+
+        <h1 class="tituloMemoria">Encontrá las parejas</h1>
+
+        <p class="subtituloMemoria">
+            ¡Descubrí los personajes iguales!
+        </p>
+
+        <!-- DIFICULTAD -->
+        <div class="nivelesMemoria">
+            <button class="nivelMemoria activo" data-parejas="3" type="button">
+                Fácil
+            </button>
+
+            <button class="nivelMemoria" data-parejas="6" type="button">
+                Medio
+            </button>
+
+            <button class="nivelMemoria" data-parejas="8" type="button">
+                Difícil
+            </button>
+        </div>
+
+        <!-- CONTADOR -->
+        <div class="progresoMemoria">
+            <span id="parejasEncontradas">0</span>
+            de
+            <span id="totalParejas">3</span>
+            parejas encontradas
+        </div>
+
+        <!-- TABLERO -->
+        <section
+            id="tableroMemoria"
+            class="tableroMemoria"
+            aria-label="Cartas del juego de memoria">
+        </section>
+
+        <!-- BOTONES -->
+        <div class="accionesMemoria">
+            <button id="reiniciarMemoria" class="botonMemoria botonReiniciar" type="button">
+                ↻ Jugar otra vez
+            </button>
+
+            <button id="volverInicioMemoria" class="botonMemoria botonVolver" type="button">
+                ← Volver
+            </button>
+        </div>
+
+        <!-- FELICITACIÓN -->
+        <div id="mensajeMemoria" class="mensajeGuardado">
+            <div class="mensajeGuardadoContenido">
+                <div class="mensajeEmoji">🎉</div>
+                <h2>¡Muy bien, Bauti!</h2>
+                <p>¡Encontraste todas las parejas!</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/memoria.js"></script>
+</body>
+</html>

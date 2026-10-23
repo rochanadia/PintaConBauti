@@ -202,29 +202,28 @@
     color: var(--color-texto-principal);
 }
 
+
 .actividadesPrincipal {
     position: relative;
     z-index: 2;
 
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    gap: 26px;
+    gap: 20px;
 
-    width: min(760px, 96%);
+    width: min(980px, 100%);
 
     margin: 0 auto;
 
     box-sizing: border-box;
 }
 
-.tarjetaActividad {
-    width: min(350px, 90vw);
-    min-height: 300px;
 
-    padding: 24px 24px 22px;
+.tarjetaActividad {
+    width: 100%;
+    min-height: 260px;
+    padding: 20px 12px;
 
     display: flex;
     flex-direction: column;
@@ -268,8 +267,8 @@
 }
 
 .iconoActividadImagen {
-    width: 180px;
-    height: 155px;
+    width: 150px;
+    height: 135px;
 
     object-fit: contain;
     display: block;
@@ -285,7 +284,7 @@
     width: 100%;
     text-align: center;
 
-    font-size: clamp(32px, 3vw, 42px);
+    font-size: clamp(22px, 2.6vw, 34px);
     font-weight: 700;
     line-height: 1.05;
 
@@ -513,3 +512,179 @@
     bottom: 42%;
     transform: scale(.65);
 }
+
+
+/* ==========================================
+   TARJETA MEMORIA
+========================================== */
+
+.inicioNuevo .tarjetaMemoria {
+    background: #e9def8;
+}
+
+.inicioNuevo .iconoMemoria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 76px;
+    line-height: 1;
+}
+
+@media (max-width: 600px) {
+    .inicioNuevo .iconoMemoria {
+        font-size: 60px;
+    }
+}
+
+
+/* ==========================================
+   DISTRIBUCIÓN RESPONSIVE - 3 JUEGOS
+========================================== */
+
+/* TABLET Y PANTALLAS MEDIANAS */
+
+@media (max-width: 800px) {
+
+    .actividadesPrincipal {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        max-width: 600px;
+    }
+
+    .tarjetaActividad {
+        min-height: 210px;
+        padding: 16px 10px;
+    }
+
+    .iconoActividadImagen {
+        width: 110px;
+        height: 105px;
+    }
+
+    .nombreActividad {
+        font-size: clamp(20px, 3.5vw, 28px);
+    }
+
+    .tarjetaMemoria {
+        grid-column: 1 / -1;
+        width: min(280px, 100%);
+        justify-self: center;
+    }
+}
+
+/* CELULAR VERTICAL */
+
+@media (max-width: 480px) and (orientation: portrait) {
+
+    .pantallaMenuPrincipal {
+        padding: 20px 12px 60px;
+        overflow: visible;
+    }
+
+    .logoPrincipal h1 {
+        font-size: clamp(34px, 9vw, 46px);
+    }
+
+    .logoPrincipal p {
+        margin: 10px auto 18px;
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+
+    .preguntaPrincipal {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .actividadesPrincipal {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .tarjetaActividad {
+        min-height: 165px;
+        padding: 12px 6px;
+        border-width: 4px;
+        border-radius: 24px;
+        gap: 8px;
+    }
+
+    .iconoActividadImagen {
+        width: 90px;
+        height: 85px;
+    }
+
+    .nombreActividad {
+        font-size: clamp(17px, 4.5vw, 22px);
+    }
+
+    .tarjetaMemoria {
+        width: min(200px, 100%);
+    }
+
+    .inicioNuevo .iconoMemoria {
+        font-size: 55px;
+    }
+}
+
+/* CELULAR HORIZONTAL */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .pantallaMenuPrincipal {
+        padding: 12px 14px 35px;
+        overflow: visible;
+    }
+
+    .logoPrincipal h1 {
+        font-size: 34px;
+    }
+
+    .logoPrincipal p {
+        margin: 6px auto 10px;
+        padding: 5px 14px;
+        font-size: 12px;
+    }
+
+    .preguntaPrincipal {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .actividadesPrincipal {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 720px;
+        gap: 12px;
+    }
+
+    .tarjetaActividad {
+        min-height: 145px;
+        padding: 10px 6px;
+        border-width: 4px;
+        border-radius: 22px;
+    }
+
+    .iconoActividadImagen {
+        width: 75px;
+        height: 70px;
+    }
+
+    .nombreActividad {
+        font-size: clamp(16px, 2.5vw, 23px);
+    }
+
+    .tarjetaMemoria {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .inicioNuevo .iconoMemoria {
+        font-size: 48px;
+    }
+}
+/* ÍCONO DE MEMORIA */
+
+    .inicioNuevo .tarjetaMemoria .iconoActividadImagen {
+        transform: scale(1.35);
+    }

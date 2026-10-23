@@ -11,3 +11,11 @@ botonColorear.addEventListener("click", () => {
 botonRompecabezas.addEventListener("click", () => {
     window.location.href = "rompecabezas-galeria.html";
 });
+
+const abrirMemoria = document.getElementById("abrirMemoria");
+
+if (abrirMemoria) {
+    abrirMemoria.addEventListener("click", () => {
+        window.location.href = "memoria.html";
+    });
+}
