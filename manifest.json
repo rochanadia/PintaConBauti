@@ -1,0 +1,25 @@
+
+{
+  "name": "Jugá con Bauti",
+  "short_name": "Bauti",
+  "description": "Juegos infantiles para colorear, armar rompecabezas y ejercitar la memoria.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#dff4ff",
+  "theme_color": "#8ed8f8",
+  "icons": [
+    {
+      "src": "imagenes/iconos/app-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "imagenes/iconos/app-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
